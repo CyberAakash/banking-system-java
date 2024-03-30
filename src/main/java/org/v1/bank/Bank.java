@@ -10,6 +10,7 @@ import java.util.Map;
 public class Bank {
     public static List<Customer> customers = new ArrayList<>();
     public static Map<Integer,Customer> customerMap = new HashMap<>();
+
     public static Customer refCustomer;
     public static int refCustId;
     public static long refAccountId;

@@ -1,6 +1,8 @@
 package org.v1.customer;
 
 import org.v1.bank.Bank;
+import org.v1.transaction.Transaction;
+import org.v1.transaction.TransactionHandler;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -60,6 +62,21 @@ public class CustomerHandler {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+//        System.out.println("Log Started");
+        logTransaction(c.custId);
+//        System.out.println("Log Ended");
+
+    }
+
+    private void logTransaction(int id) {
+        Transaction transaction = new Transaction(
+                1,
+                "Opening",
+                10000,
+                10000
+        );
+        TransactionHandler transactionHandler = new TransactionHandler();
+        transactionHandler.writeTransaction(id, transaction);
     }
 
     public String encryptPass(String pass) {
